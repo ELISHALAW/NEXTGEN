@@ -15,13 +15,13 @@ html{
 :root{
     /* Colors */
     --white-color:#fff;
-    --yellow-dark-color:#BDB76B ;
+    --yellow-dark-color:#F5F5DC ;
     --primary-color:darkblue;
     --secondary-color:#f3961c;
     --light-pink-color:#faf4f5;
     --medium-gray-color:#ccc;
     --sky-blue-color:#87ceeb;
-    --dark-yellow-color:#F0E68C;
+    --dark-yellow-color:#F5F5DC;
 
     --font-size-s:0.9rem;
     --font-size-n:1rem;
