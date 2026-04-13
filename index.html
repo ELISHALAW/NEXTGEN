@@ -7,63 +7,80 @@
     <title>Coffee Website | CodingNepal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+        .coffee-gradient {
+            background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+        }
+
+        .smooth-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
 </head>
 
 <body class="bg-gray-50">
     <!-- Header / Navbar -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
+    <header class="bg-white shadow-lg sticky top-0 z-50">
         <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-amber-700">🍵Coffee</a>
+            <a href="#" class="text-3xl font-bold coffee-gradient bg-clip-text text-transparent">☕ Coffee</a>
             <ul class="hidden md:flex gap-8">
-                <li><a href="#" class="hover:text-amber-700 transition">Home</a></li>
-                <li><a href="#about" class="hover:text-amber-700 transition">About</a></li>
-                <li><a href="#menu" class="hover:text-amber-700 transition">Menu</a></li>
-                <li><a href="#gallery" class="hover:text-amber-700 transition">Gallery</a></li>
-                <li><a href="#contact" class="hover:text-amber-700 transition">Contact</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-amber-700 smooth-transition font-medium">Home</a></li>
+                <li><a href="#about" class="text-gray-700 hover:text-amber-700 smooth-transition font-medium">About</a>
+                </li>
+                <li><a href="#menu" class="text-gray-700 hover:text-amber-700 smooth-transition font-medium">Menu</a>
+                </li>
+                <li><a href="#gallery"
+                        class="text-gray-700 hover:text-amber-700 smooth-transition font-medium">Gallery</a></li>
+                <li><a href="#contact"
+                        class="text-gray-700 hover:text-amber-700 smooth-transition font-medium">Contact</a></li>
             </ul>
-            <button id="menu-open-button" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+            <button id="menu-open-button" class="md:hidden text-2xl text-amber-700"><i class="fas fa-bars"></i></button>
         </nav>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section class="bg-gradient-to-r from-amber-50 to-orange-50 py-20">
-            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-5xl font-bold text-gray-900 mb-4">Best Coffee</h2>
-                    <h3 class="text-2xl text-amber-700 mb-4">Make your day great with our special coffee!</h3>
-                    <p class="text-gray-600 mb-8">Welcome to our coffee paradise, where every bean tells a story and
-                        every cup sparks joy</p>
-                    <div class="flex gap-4">
+        <section class="coffee-gradient py-32 text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10"
+                style="background-image: url('data:image/svg+xml,%3Csvg width=%2260%27 height=%2760%27 viewBox=%270 0 60 60%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cg fill=%27none%27 fill-rule=%27evenodd%27%3E%3Cg fill=%27%23ffffff%27 fill-opacity=%270.1%27%3E%3Cpath d=%27M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%27/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');">
+            </div>
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center relative z-10">
+                <div class="animate-fade-in">
+                    <h2 class="text-6xl font-bold mb-4 leading-tight">Brew Excellence</h2>
+                    <h3 class="text-2xl mb-6 text-amber-100">Every Cup Tells a Story</h3>
+                    <p class="text-amber-50 mb-8 text-lg leading-relaxed">Welcome to our coffee paradise, where premium
+                        beans meet artisan craftsmanship. Experience the perfect blend of tradition and innovation.</p>
+                    <div class="flex gap-4 flex-wrap">
                         <a href="#"
-                            class="bg-amber-700 text-white px-6 py-3 rounded-lg hover:bg-amber-800 transition">Order
+                            class="bg-white text-amber-700 px-8 py-4 rounded-lg hover:bg-amber-50 smooth-transition font-bold shadow-lg">Order
                             Now</a>
                         <a href="#"
-                            class="border-2 border-amber-700 text-amber-700 px-6 py-3 rounded-lg hover:bg-amber-50 transition">Contact
+                            class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-amber-700 smooth-transition font-bold">Contact
                             Us</a>
                     </div>
                 </div>
                 <div class="flex justify-center">
-                    <img src="images/coffee-hero-section.png" alt="Hero" class="max-w-sm">
+                    <img src="images/coffee-hero-section.png" alt="Hero" class="max-w-sm drop-shadow-2xl">
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section class="py-20" id="about">
-            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-                <img src="images/about-image.jpg" alt="About" class="rounded-lg shadow-lg">
+        <section class="py-32" id="about">
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
+                <img src="images/about-image.jpg" alt="About"
+                    class="rounded-2xl shadow-2xl hover:shadow-3xl smooth-transition">
                 <div>
-                    <h2 class="text-4xl font-bold text-gray-900 mb-6">About Us</h2>
-                    <p class="text-gray-600 mb-8 leading-relaxed">At Coffee House in Berndorf, Germany, we pride
+                    <h2 class="text-5xl font-bold text-gray-900 mb-6">About Us</h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed text-lg">At Coffee House in Berndorf, Germany, we pride
                         ourselves on being a go-to destination for coffee lovers and conversation seekers alike. We're
                         dedicated to providing an exceptional coffee experience in a cozy and inviting atmosphere.</p>
-                    <div class="flex gap-4">
-                        <a href="#" class="text-amber-700 text-2xl hover:text-amber-800"><i
+                    <div class="flex gap-6">
+                        <a href="#" class="text-amber-700 text-3xl hover:text-amber-900 smooth-transition"><i
                                 class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-amber-700 text-2xl hover:text-amber-800"><i
+                        <a href="#" class="text-amber-700 text-3xl hover:text-amber-900 smooth-transition"><i
                                 class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-amber-700 text-2xl hover:text-amber-800"><i
+                        <a href="#" class="text-amber-700 text-3xl hover:text-amber-900 smooth-transition"><i
                                 class="fab fa-x-twitter"></i></a>
                     </div>
                 </div>
@@ -71,51 +88,63 @@
         </section>
 
         <!-- Menu Section -->
-        <section class="bg-gray-100 py-20" id="menu">
+        <section class="bg-gray-100 py-32" id="menu">
             <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Our Menu</h2>
-                <ul class="grid md:grid-cols-3 gap-8">
-                    <li class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-                        <img src="images/hot-beverages.png" alt="Hot Beverage" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Hot Beverage</h3>
-                            <p class="text-gray-600">Wide range of Steaming hot coffee to make you fresh and light.</p>
+                <h2 class="text-5xl font-bold text-center text-gray-900 mb-16">Our Menu</h2>
+                <ul class="grid md:grid-cols-3 gap-10">
+                    <li
+                        class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl smooth-transition transform hover:-translate-y-2">
+                        <img src="images/hot-beverages.png" alt="Hot Beverage" class="w-full h-56 object-cover">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Hot Beverage</h3>
+                            <p class="text-gray-600 leading-relaxed">Wide range of steaming hot coffee to make you fresh
+                                and energized.</p>
                         </div>
                     </li>
-                    <li class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-                        <img src="images/cold-beverages.png" alt="Cold Beverage" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Cold Beverage</h3>
-                            <p class="text-gray-600">Creamy and frothy cold coffee to make you cool.</p>
+                    <li
+                        class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl smooth-transition transform hover:-translate-y-2">
+                        <img src="images/cold-beverages.png" alt="Cold Beverage" class="w-full h-56 object-cover">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Cold Beverage</h3>
+                            <p class="text-gray-600 leading-relaxed">Creamy and frothy cold coffee to keep you cool and
+                                refreshed.</p>
                         </div>
                     </li>
-                    <li class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-                        <img src="images/refreshment.png" alt="Refreshment" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Refreshment</h3>
-                            <p class="text-gray-600">Fruit and icy refreshing drink to make feel refresh.</p>
+                    <li
+                        class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl smooth-transition transform hover:-translate-y-2">
+                        <img src="images/refreshment.png" alt="Refreshment" class="w-full h-56 object-cover">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Refreshment</h3>
+                            <p class="text-gray-600 leading-relaxed">Fruit and icy refreshing drinks to make you feel
+                                rejuvenated.</p>
                         </div>
                     </li>
-                    <li class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-                        <img src="images/special-combo.png" alt="Special Combos" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Special Combos</h3>
-                            <p class="text-gray-600">Your favorite eating and drinking combinations</p>
+                    <li
+                        class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl smooth-transition transform hover:-translate-y-2">
+                        <img src="images/special-combo.png" alt="Special Combos" class="w-full h-56 object-cover">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Special Combos</h3>
+                            <p class="text-gray-600 leading-relaxed">Your favorite eating and drinking combinations
+                                paired perfectly.</p>
                         </div>
                     </li>
-                    <li class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-                        <img src="images/desserts.png" alt="Dessert" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Dessert</h3>
-                            <p class="text-gray-600">Satiate your palate and take you on a culinary treat.</p>
+                    <li
+                        class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl smooth-transition transform hover:-translate-y-2">
+                        <img src="images/desserts.png" alt="Dessert" class="w-full h-56 object-cover">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Dessert</h3>
+                            <p class="text-gray-600 leading-relaxed">Indulgent treats to take you on a culinary journey.
+                            </p>
                         </div>
                     </li>
-                    <li class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                    <li
+                        class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl smooth-transition transform hover:-translate-y-2">
                         <img src="images/burger-frenchfries.png" alt="Burger & French Fries"
-                            class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Burger & French Fries</h3>
-                            <p class="text-gray-600">Quick bites to satisfy your small size burger.</p>
+                            class="w-full h-56 object-cover">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Burger & Fries</h3>
+                            <p class="text-gray-600 leading-relaxed">Quick bites packed with flavor to satisfy your
+                                cravings.</p>
                         </div>
                     </li>
                 </ul>
@@ -123,107 +152,106 @@
         </section>
 
         <!-- Gallery Section -->
-        <section class="py-20" id="gallery">
+        <section class="py-32" id="gallery">
             <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Gallery</h2>
-                <ul class="grid md:grid-cols-3 gap-6">
+                <h2 class="text-5xl font-bold text-center text-gray-900 mb-16">Gallery</h2>
+                <ul class="grid md:grid-cols-3 gap-8">
                     <li
-                        class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition transform hover:scale-105">
-                        <img src="images/nextgen1.jpeg" alt="Gallery" class="w-full h-64 object-cover">
+                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
+                        <img src="images/nextgen1.jpeg" alt="Gallery" class="w-full h-72 object-cover">
                     </li>
                     <li
-                        class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition transform hover:scale-105">
-                        <img src="images/nextgen2.jpeg" alt="Gallery" class="w-full h-64 object-cover">
+                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
+                        <img src="images/nextgen2.jpeg" alt="Gallery" class="w-full h-72 object-cover">
                     </li>
                     <li
-                        class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition transform hover:scale-105">
-                        <img src="images/nextgen3.jpeg" alt="Gallery" class="w-full h-64 object-cover">
+                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
+                        <img src="images/nextgen3.jpeg" alt="Gallery" class="w-full h-72 object-cover">
                     </li>
                     <li
-                        class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition transform hover:scale-105">
-                        <img src="images/nextgen4.jpeg" alt="Gallery" class="w-full h-64 object-cover">
+                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
+                        <img src="images/nextgen4.jpeg" alt="Gallery" class="w-full h-72 object-cover">
                     </li>
                     <li
-                        class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition transform hover:scale-105">
-                        <img src="images/nextgen5.jpeg" alt="Gallery" class="w-full h-64 object-cover">
+                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
+                        <img src="images/nextgen5.jpeg" alt="Gallery" class="w-full h-72 object-cover">
                     </li>
                     <li
-                        class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition transform hover:scale-105">
-                        <img src="images/nextgen6.jpeg" alt="Gallery" class="w-full h-64 object-cover">
+                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
+                        <img src="images/nextgen6.jpeg" alt="Gallery" class="w-full h-72 object-cover">
                     </li>
                 </ul>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section class="bg-gray-100 py-20" id="contact">
+        <section class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-32" id="contact">
             <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Contact Us</h2>
-                <div class="grid md:grid-cols-2 gap-12">
-                    <ul class="space-y-4">
-                        <li class="flex gap-4 items-start">
-                            <i class="fas fa-location-crosshairs text-amber-700 text-xl mt-1"></i>
-                            <p class="text-gray-600">123 Campsite Avenue, Wilderness, CA 98765</p>
+                <h2 class="text-5xl font-bold text-center mb-16">Contact Us</h2>
+                <div class="grid md:grid-cols-2 gap-16">
+                    <ul class="space-y-6">
+                        <li class="flex gap-4 items-start hover:transform hover:translate-x-2 smooth-transition">
+                            <i class="fas fa-location-crosshairs text-amber-500 text-2xl mt-1 flex-shrink-0"></i>
+                            <p class="text-gray-200 text-lg">123 Campsite Avenue, Wilderness, CA 98765</p>
+                        </li>
+                        <li class="flex gap-4 items-start hover:transform hover:translate-x-2 smooth-transition">
+                            <i class="fas fa-envelope text-amber-500 text-2xl mt-1 flex-shrink-0"></i>
+                            <p class="text-gray-200 text-lg">seongchunlaw050@gmail.com</p>
+                        </li>
+                        <li class="flex gap-4 items-start hover:transform hover:translate-x-2 smooth-transition">
+                            <i class="fas fa-phone text-amber-500 text-2xl mt-1 flex-shrink-0"></i>
+                            <p class="text-gray-200 text-lg">011 33903509</p>
                         </li>
                         <li class="flex gap-4 items-start">
-                            <i class="fas fa-envelope text-amber-700 text-xl mt-1"></i>
-                            <p class="text-gray-600">seongchunlaw050@gmail.com</p>
+                            <i class="fas fa-clock text-amber-500 text-2xl mt-1 flex-shrink-0"></i>
+                            <div>
+                                <p class="text-gray-200 text-lg">Mon - Fri: 9:00AM - 5:00PM</p>
+                                <p class="text-gray-200 text-lg">Sat: 10:00AM - 3:00PM</p>
+                                <p class="text-gray-300 text-lg">Sun: Closed</p>
+                            </div>
                         </li>
-                        <li class="flex gap-4 items-start">
-                            <i class="fas fa-phone text-amber-700 text-xl mt-1"></i>
-                            <p class="text-gray-600">011 33903509</p>
-                        </li>
-                        <li class="flex gap-4 items-start">
-                            <i class="fas fa-clock text-amber-700 text-xl mt-1"></i>
-                            <p class="text-gray-600">Monday - Friday 9:00AM - 5:00PM</p>
-                        </li>
-                        <li class="flex gap-4 items-start">
-                            <i class="fas fa-clock text-amber-700 text-xl mt-1"></i>
-                            <p class="text-gray-600">Saturday 10:00AM - 3:00PM</p>
-                        </li>
-                        <li class="flex gap-4 items-start">
-                            <i class="fas fa-clock text-amber-700 text-xl mt-1"></i>
-                            <p class="text-gray-600">Sunday: Closed</p>
-                        </li>
-                        <li class="flex gap-4 items-start">
-                            <i class="fas fa-globe text-amber-700 text-xl mt-1"></i>
-                            <p class="text-gray-600">www.codingnepalweb.com</p>
+                        <li class="flex gap-4 items-start hover:transform hover:translate-x-2 smooth-transition">
+                            <i class="fas fa-globe text-amber-500 text-2xl mt-1 flex-shrink-0"></i>
+                            <p class="text-gray-200 text-lg">www.codingnepalweb.com</p>
                         </li>
                     </ul>
 
-                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
                         <input type="hidden" name="access_key" value="674464f9-68b4-447e-908d-8e3f58cb2ee6">
                         <input type="text" name="name"
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-700"
+                            class="w-full px-6 py-4 bg-gray-700 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 smooth-transition placeholder-gray-400"
                             placeholder="Your Name" required>
                         <input type="email" name="email"
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-700"
+                            class="w-full px-6 py-4 bg-gray-700 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 smooth-transition placeholder-gray-400"
                             placeholder="Your email" required>
                         <textarea name="message"
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-amber-700 h-32"
+                            class="w-full px-6 py-4 bg-gray-700 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 smooth-transition h-36 placeholder-gray-400 resize-none"
                             placeholder="Your message" required></textarea>
                         <input type="hidden" name="redirect"
                             value="https://ELISHALAW.github.io/NEXTGEN/index.html?success=true">
                         <button type="submit"
-                            class="w-full bg-amber-700 text-white py-3 rounded-lg hover:bg-amber-800 transition font-semibold">Submit</button>
+                            class="w-full bg-amber-600 hover:bg-amber-700 text-white py-4 rounded-lg smooth-transition font-bold text-lg shadow-lg">Submit</button>
                     </form>
                 </div>
             </div>
         </section>
 
         <!-- Footer Section -->
-        <footer class="bg-gray-900 text-white py-8">
+        <footer class="bg-gray-950 text-white py-12">
             <div class="max-w-7xl mx-auto px-4 text-center">
-                <p class="mb-4">© 2024 Coffee Shop</p>
-                <div class="flex justify-center gap-4 mb-4">
-                    <a href="#" class="hover:text-amber-700"><i class="fab fa-facebook text-xl"></i></a>
-                    <a href="#" class="hover:text-amber-700"><i class="fab fa-instagram text-xl"></i></a>
-                    <a href="#" class="hover:text-amber-700"><i class="fab fa-x-twitter text-xl"></i></a>
+                <p class="mb-6 text-lg font-semibold">© 2024 Coffee Shop. All rights reserved.</p>
+                <div class="flex justify-center gap-6 mb-6">
+                    <a href="#" class="text-amber-600 hover:text-amber-400 smooth-transition text-2xl"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-amber-600 hover:text-amber-400 smooth-transition text-2xl"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-amber-600 hover:text-amber-400 smooth-transition text-2xl"><i
+                            class="fab fa-x-twitter"></i></a>
                 </div>
-                <p class="text-gray-400 text-sm">
-                    <a href="#" class="hover:text-amber-700">Privacy Policy</a>
-                    <span class="mx-2">•</span>
-                    <a href="#" class="hover:text-amber-700">Refund Policy</a>
+                <p class="text-gray-400">
+                    <a href="#" class="hover:text-amber-500 smooth-transition">Privacy Policy</a>
+                    <span class="mx-3">•</span>
+                    <a href="#" class="hover:text-amber-500 smooth-transition">Refund Policy</a>
                 </p>
             </div>
         </footer>
