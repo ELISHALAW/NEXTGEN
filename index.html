@@ -15,6 +15,19 @@
         .smooth-transition {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        .show-mobile-menu .nav-menu {
+            transform: translateX(0);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
     </style>
 </head>
 
@@ -36,6 +49,16 @@
             </ul>
             <button id="menu-open-button" class="md:hidden text-2xl text-amber-700"><i class="fas fa-bars"></i></button>
         </nav>
+        <div class="nav-menu fixed top-0 left-0 w-full h-full bg-white z-40 transform -translate-x-full transition-transform duration-300 md:hidden">
+            <button id="menu-close-button" class="absolute top-4 right-4 text-2xl text-amber-700"><i class="fas fa-times"></i></button>
+            <ul class="flex flex-col items-center justify-center h-full space-y-8">
+                <li><a href="#" class="nav-link text-gray-700 hover:text-amber-700 smooth-transition font-medium text-xl">Home</a></li>
+                <li><a href="#about" class="nav-link text-gray-700 hover:text-amber-700 smooth-transition font-medium text-xl">About</a></li>
+                <li><a href="#menu" class="nav-link text-gray-700 hover:text-amber-700 smooth-transition font-medium text-xl">Menu</a></li>
+                <li><a href="#gallery" class="nav-link text-gray-700 hover:text-amber-700 smooth-transition font-medium text-xl">Gallery</a></li>
+                <li><a href="#contact" class="nav-link text-gray-700 hover:text-amber-700 smooth-transition font-medium text-xl">Contact</a></li>
+            </ul>
+        </div>
     </header>
 
     <main>
@@ -99,6 +122,7 @@
                             <h3 class="text-2xl font-bold text-gray-900 mb-3">Hot Beverage</h3>
                             <p class="text-gray-600 leading-relaxed">Wide range of steaming hot coffee to make you fresh
                                 and energized.</p>
+                            <a href="#" class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View Menu</a>
                         </div>
                     </li>
                     <li
@@ -108,6 +132,7 @@
                             <h3 class="text-2xl font-bold text-gray-900 mb-3">Cold Beverage</h3>
                             <p class="text-gray-600 leading-relaxed">Creamy and frothy cold coffee to keep you cool and
                                 refreshed.</p>
+                            <a href="#" class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View Menu</a>
                         </div>
                     </li>
                     <li
@@ -117,6 +142,7 @@
                             <h3 class="text-2xl font-bold text-gray-900 mb-3">Refreshment</h3>
                             <p class="text-gray-600 leading-relaxed">Fruit and icy refreshing drinks to make you feel
                                 rejuvenated.</p>
+                            <a href="#" class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View Menu</a>
                         </div>
                     </li>
                     <li
@@ -126,6 +152,7 @@
                             <h3 class="text-2xl font-bold text-gray-900 mb-3">Special Combos</h3>
                             <p class="text-gray-600 leading-relaxed">Your favorite eating and drinking combinations
                                 paired perfectly.</p>
+                            <a href="#" class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View Menu</a>
                         </div>
                     </li>
                     <li
@@ -135,6 +162,7 @@
                             <h3 class="text-2xl font-bold text-gray-900 mb-3">Dessert</h3>
                             <p class="text-gray-600 leading-relaxed">Indulgent treats to take you on a culinary journey.
                             </p>
+                            <a href="#" class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View Menu</a>
                         </div>
                     </li>
                     <li
@@ -145,6 +173,7 @@
                             <h3 class="text-2xl font-bold text-gray-900 mb-3">Burger & Fries</h3>
                             <p class="text-gray-600 leading-relaxed">Quick bites packed with flavor to satisfy your
                                 cravings.</p>
+                            <a href="#" class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View Menu</a>
                         </div>
                     </li>
                 </ul>
@@ -157,27 +186,27 @@
                 <h2 class="text-5xl font-bold text-center text-gray-900 mb-16">Gallery</h2>
                 <ul class="grid md:grid-cols-3 gap-8">
                     <li
-                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
+                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105 cursor-pointer">
                         <img src="images/nextgen1.jpeg" alt="Gallery" class="w-full h-72 object-cover">
                     </li>
                     <li
-                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
+                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105 cursor-pointer">
                         <img src="images/nextgen2.jpeg" alt="Gallery" class="w-full h-72 object-cover">
                     </li>
                     <li
-                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
+                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105 cursor-pointer">
                         <img src="images/nextgen3.jpeg" alt="Gallery" class="w-full h-72 object-cover">
                     </li>
                     <li
-                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
+                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105 cursor-pointer">
                         <img src="images/nextgen4.jpeg" alt="Gallery" class="w-full h-72 object-cover">
                     </li>
                     <li
-                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
+                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105 cursor-pointer">
                         <img src="images/nextgen5.jpeg" alt="Gallery" class="w-full h-72 object-cover">
                     </li>
                     <li
-                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
+                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105 cursor-pointer">
                         <img src="images/nextgen6.jpeg" alt="Gallery" class="w-full h-72 object-cover">
                     </li>
                 </ul>
@@ -216,8 +245,7 @@
                         </li>
                     </ul>
 
-                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
-                        <input type="hidden" name="access_key" value="674464f9-68b4-447e-908d-8e3f58cb2ee6">
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
                         <input type="text" name="name"
                             class="w-full px-6 py-4 bg-gray-700 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 smooth-transition placeholder-gray-400"
                             placeholder="Your Name" required>
@@ -227,10 +255,12 @@
                         <textarea name="message"
                             class="w-full px-6 py-4 bg-gray-700 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 smooth-transition h-36 placeholder-gray-400 resize-none"
                             placeholder="Your message" required></textarea>
-                        <input type="hidden" name="redirect"
+                        <input type="hidden" name="_next"
                             value="https://ELISHALAW.github.io/NEXTGEN/index.html?success=true">
                         <button type="submit"
-                            class="w-full bg-amber-600 hover:bg-amber-700 text-white py-4 rounded-lg smooth-transition font-bold text-lg shadow-lg">Submit</button>
+                            class="w-full bg-amber-600 hover:bg-amber-700 text-white py-4 rounded-lg smooth-transition font-bold text-lg shadow-lg">
+                            Submit
+                        </button>
                     </form>
                 </div>
             </div>
