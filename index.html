@@ -21,8 +21,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .animate-fade-in {
@@ -33,49 +40,42 @@
 
 <body class="bg-gray-50">
     <!-- Header / Navbar -->
-    <header class="bg-white shadow-lg sticky top-0 z-50">
-        <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-3xl font-bold coffee-gradient bg-clip-text text-transparent">☕ Coffee</a>
+    <header id="main-header" class="bg-[#252525] shadow-lg sticky top-0 z-50 py-6 transition-all duration-500">
+        <nav class="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3">
+                <img id="nav-logo" src="images/white.png"
+                    class="h-20 w-auto justify-center object-contain transition-all duration-500" alt="logo">
+            </a>
+
             <ul class="hidden md:flex gap-8">
-                <li><a href="#" class="text-gray-700 hover:text-amber-700 smooth-transition font-medium">Home</a></li>
-                <li><a href="#about" class="text-gray-700 hover:text-amber-700 smooth-transition font-medium">About</a>
+                <li><a href="#" class="text-white hover:text-amber-500 transition-colors font-medium">Home</a></li>
+                <li><a href="#about" class="text-white hover:text-amber-500 transition-colors font-medium">About</a>
                 </li>
-                <li><a href="#menu" class="text-gray-700 hover:text-amber-700 smooth-transition font-medium">Menu</a>
+                <li><a href="#menu" class="text-white hover:text-amber-500 transition-colors font-medium">Menu</a></li>
+                <li><a href="#gallery" class="text-white hover:text-amber-500 transition-colors font-medium">Gallery</a>
                 </li>
-                <li><a href="#gallery"
-                        class="text-gray-700 hover:text-amber-700 smooth-transition font-medium">Gallery</a></li>
-                <li><a href="#contact"
-                        class="text-gray-700 hover:text-amber-700 smooth-transition font-medium">Contact</a></li>
+                <li><a href="#contact" class="text-white hover:text-amber-500 transition-colors font-medium">Contact</a>
+                </li>
             </ul>
             <button id="menu-open-button" class="md:hidden text-2xl text-amber-700"><i class="fas fa-bars"></i></button>
         </nav>
-        <div class="nav-menu fixed top-0 left-0 w-full h-full bg-white z-40 transform -translate-x-full transition-transform duration-300 md:hidden">
-            <button id="menu-close-button" class="absolute top-4 right-4 text-2xl text-amber-700"><i class="fas fa-times"></i></button>
-            <ul class="flex flex-col items-center justify-center h-full space-y-8">
-                <li><a href="#" class="nav-link text-gray-700 hover:text-amber-700 smooth-transition font-medium text-xl">Home</a></li>
-                <li><a href="#about" class="nav-link text-gray-700 hover:text-amber-700 smooth-transition font-medium text-xl">About</a></li>
-                <li><a href="#menu" class="nav-link text-gray-700 hover:text-amber-700 smooth-transition font-medium text-xl">Menu</a></li>
-                <li><a href="#gallery" class="nav-link text-gray-700 hover:text-amber-700 smooth-transition font-medium text-xl">Gallery</a></li>
-                <li><a href="#contact" class="nav-link text-gray-700 hover:text-amber-700 smooth-transition font-medium text-xl">Contact</a></li>
-            </ul>
-        </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section class="coffee-gradient py-32 text-white relative overflow-hidden">
+        <section class="bg-[#e4ddcc] py-32 text-white relative overflow-hidden">
             <div class="absolute inset-0 opacity-10"
                 style="background-image: url('data:image/svg+xml,%3Csvg width=%2260%27 height=%2760%27 viewBox=%270 0 60 60%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cg fill=%27none%27 fill-rule=%27evenodd%27%3E%3Cg fill=%27%23ffffff%27 fill-opacity=%270.1%27%3E%3Cpath d=%27M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%27/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');">
             </div>
             <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center relative z-10">
                 <div class="animate-fade-in">
-                    <h2 class="text-6xl font-bold mb-4 leading-tight">Brew Excellence</h2>
-                    <h3 class="text-2xl mb-6 text-amber-100">Every Cup Tells a Story</h3>
-                    <p class="text-amber-50 mb-8 text-lg leading-relaxed">Welcome to our coffee paradise, where premium
+                    <h2 class="text-6xl font-bold mb-4 leading-tight text-white">Brew Excellence</h2>
+                    <h3 class="text-2xl mb-6 text-amber-100 text-white">Every Cup Tells a Story</h3>
+                    <p class="text-white mb-8 text-lg leading-relaxed">Welcome to our coffee paradise, where premium
                         beans meet artisan craftsmanship. Experience the perfect blend of tradition and innovation.</p>
                     <div class="flex gap-4 flex-wrap">
                         <a href="#"
-                            class="bg-white text-amber-700 px-8 py-4 rounded-lg hover:bg-amber-50 smooth-transition font-bold shadow-lg">Order
+                            class="bg-white px-8 py-4 rounded-lg hover:bg-amber-50 smooth-transition font-bold shadow-lg text-[#252525]">Order
                             Now</a>
                         <a href="#"
                             class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-amber-700 smooth-transition font-bold">Contact
@@ -83,7 +83,7 @@
                     </div>
                 </div>
                 <div class="flex justify-center">
-                    <img src="images/coffee-hero-section.png" alt="Hero" class="max-w-sm drop-shadow-2xl">
+                    <img src="images/brandBlack.png" alt="Hero" class="max-w-sm drop-shadow-2xl">
                 </div>
             </div>
         </section>
@@ -99,11 +99,11 @@
                         ourselves on being a go-to destination for coffee lovers and conversation seekers alike. We're
                         dedicated to providing an exceptional coffee experience in a cozy and inviting atmosphere.</p>
                     <div class="flex gap-6">
-                        <a href="#" class="text-amber-700 text-3xl hover:text-amber-900 smooth-transition"><i
+                        <a href="#" class="text-[#c5b49d] text-3xl hover:text-amber-900 smooth-transition"><i
                                 class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-amber-700 text-3xl hover:text-amber-900 smooth-transition"><i
+                        <a href="#" class="text-[#c5b49d] text-3xl hover:text-amber-900 smooth-transition"><i
                                 class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-amber-700 text-3xl hover:text-amber-900 smooth-transition"><i
+                        <a href="#" class="text-[#c5b49d] text-3xl hover:text-amber-900 smooth-transition"><i
                                 class="fab fa-x-twitter"></i></a>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
         <!-- Menu Section -->
         <section class="bg-gray-100 py-32" id="menu">
             <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-5xl font-bold text-center text-gray-900 mb-16">Our Menu</h2>
+                <h2 class="text-5xl font-bold text-center text-gray-900 mb-16">Our Product</h2>
                 <ul class="grid md:grid-cols-3 gap-10">
                     <li
                         class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl smooth-transition transform hover:-translate-y-2">
@@ -122,7 +122,9 @@
                             <h3 class="text-2xl font-bold text-gray-900 mb-3">Hot Beverage</h3>
                             <p class="text-gray-600 leading-relaxed">Wide range of steaming hot coffee to make you fresh
                                 and energized.</p>
-                            <a href="#" class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View Menu</a>
+                            <a href="#"
+                                class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View
+                                Menu</a>
                         </div>
                     </li>
                     <li
@@ -132,7 +134,9 @@
                             <h3 class="text-2xl font-bold text-gray-900 mb-3">Cold Beverage</h3>
                             <p class="text-gray-600 leading-relaxed">Creamy and frothy cold coffee to keep you cool and
                                 refreshed.</p>
-                            <a href="#" class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View Menu</a>
+                            <a href="#"
+                                class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View
+                                Menu</a>
                         </div>
                     </li>
                     <li
@@ -142,7 +146,9 @@
                             <h3 class="text-2xl font-bold text-gray-900 mb-3">Refreshment</h3>
                             <p class="text-gray-600 leading-relaxed">Fruit and icy refreshing drinks to make you feel
                                 rejuvenated.</p>
-                            <a href="#" class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View Menu</a>
+                            <a href="#"
+                                class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View
+                                Menu</a>
                         </div>
                     </li>
                     <li
@@ -152,7 +158,9 @@
                             <h3 class="text-2xl font-bold text-gray-900 mb-3">Special Combos</h3>
                             <p class="text-gray-600 leading-relaxed">Your favorite eating and drinking combinations
                                 paired perfectly.</p>
-                            <a href="#" class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View Menu</a>
+                            <a href="#"
+                                class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View
+                                Menu</a>
                         </div>
                     </li>
                     <li
@@ -162,7 +170,9 @@
                             <h3 class="text-2xl font-bold text-gray-900 mb-3">Dessert</h3>
                             <p class="text-gray-600 leading-relaxed">Indulgent treats to take you on a culinary journey.
                             </p>
-                            <a href="#" class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View Menu</a>
+                            <a href="#"
+                                class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View
+                                Menu</a>
                         </div>
                     </li>
                     <li
@@ -173,7 +183,9 @@
                             <h3 class="text-2xl font-bold text-gray-900 mb-3">Burger & Fries</h3>
                             <p class="text-gray-600 leading-relaxed">Quick bites packed with flavor to satisfy your
                                 cravings.</p>
-                            <a href="#" class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View Menu</a>
+                            <a href="#"
+                                class="inline-block mt-4 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 smooth-transition font-medium">View
+                                Menu</a>
                         </div>
                     </li>
                 </ul>
@@ -181,9 +193,9 @@
         </section>
 
         <!-- Gallery Section -->
-        <section class="py-32" id="gallery">
+        <section class="py-32 bg-[#443a35]" id="gallery">
             <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-5xl font-bold text-center text-gray-900 mb-16">Gallery</h2>
+                <h2 class="text-5xl font-bold text-center text-[#f8f4ee] mb-16">Gallery</h2>
                 <ul class="grid md:grid-cols-3 gap-8">
                     <li
                         class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105 cursor-pointer">
@@ -214,25 +226,25 @@
         </section>
 
         <!-- Contact Section -->
-        <section class="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-32" id="contact">
+        <section class="bg-[#252525] from-gray-900 to-gray-800 text-white py-32" id="contact">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-5xl font-bold text-center mb-16">Contact Us</h2>
                 <div class="grid md:grid-cols-2 gap-16">
                     <ul class="space-y-6">
                         <li class="flex gap-4 items-start hover:transform hover:translate-x-2 smooth-transition">
-                            <i class="fas fa-location-crosshairs text-amber-500 text-2xl mt-1 flex-shrink-0"></i>
+                            <i class="fas fa-location-crosshairs text-[#c5b49d] text-2xl mt-1 flex-shrink-0"></i>
                             <p class="text-gray-200 text-lg">123 Campsite Avenue, Wilderness, CA 98765</p>
                         </li>
                         <li class="flex gap-4 items-start hover:transform hover:translate-x-2 smooth-transition">
-                            <i class="fas fa-envelope text-amber-500 text-2xl mt-1 flex-shrink-0"></i>
+                            <i class="fas fa-envelope  text-[#c5b49d] text-2xl mt-1 flex-shrink-0"></i>
                             <p class="text-gray-200 text-lg">seongchunlaw050@gmail.com</p>
                         </li>
                         <li class="flex gap-4 items-start hover:transform hover:translate-x-2 smooth-transition">
-                            <i class="fas fa-phone text-amber-500 text-2xl mt-1 flex-shrink-0"></i>
+                            <i class="fas fa-phone  text-[#c5b49d] text-2xl mt-1 flex-shrink-0"></i>
                             <p class="text-gray-200 text-lg">011 33903509</p>
                         </li>
                         <li class="flex gap-4 items-start">
-                            <i class="fas fa-clock text-amber-500 text-2xl mt-1 flex-shrink-0"></i>
+                            <i class="fas fa-clock  text-[#c5b49d] text-2xl mt-1 flex-shrink-0"></i>
                             <div>
                                 <p class="text-gray-200 text-lg">Mon - Fri: 9:00AM - 5:00PM</p>
                                 <p class="text-gray-200 text-lg">Sat: 10:00AM - 3:00PM</p>
@@ -247,17 +259,17 @@
 
                     <form action="https://formspree.io/f/xnjlnpoq" method="POST" class="space-y-6">
                         <input type="text" name="name"
-                            class="w-full px-6 py-4 bg-gray-700 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 smooth-transition placeholder-gray-400"
+                            class="w-full px-6 py-4 bg-white text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 smooth-transition placeholder-gray-400"
                             placeholder="Your Name" required>
                         <input type="email" name="email"
-                            class="w-full px-6 py-4 bg-gray-700 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 smooth-transition placeholder-gray-400"
+                            class="w-full px-6 py-4 bg-white text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 smooth-transition placeholder-gray-400"
                             placeholder="Your email" required>
                         <textarea name="message"
-                            class="w-full px-6 py-4 bg-gray-700 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 smooth-transition h-36 placeholder-gray-400 resize-none"
+                            class="w-full px-6 py-4 bg-white text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:border-amber-500 smooth-transition h-36 placeholder-gray-400 resize-none"
                             placeholder="Your message" required></textarea>
-                      
+
                         <button type="submit"
-                            class="w-full bg-amber-600 hover:bg-amber-700 text-white py-4 rounded-lg smooth-transition font-bold text-lg shadow-lg">
+                            class="w-full bg-[#c5b49d] hover:bg-amber-700 text-white py-4 rounded-lg smooth-transition font-bold text-lg shadow-lg">
                             Submit
                         </button>
                     </form>
