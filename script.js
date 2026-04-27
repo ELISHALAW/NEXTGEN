@@ -1,20 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Select all elements
-  const header = document.getElementById("main-header");
+  const header = document.querySelector("#main-header");
   const menuOpenButton = document.querySelector("#menu-open-button");
   const menuCloseButton = document.querySelector("#menu-close-button");
-  const navLinks = document.querySelectorAll(".md\\:flex a"); // Selects links in your nav
-  const navContainer = header?.querySelector("nav");
+  const menuOverlay = document.querySelector("#menu-overlay");
+  const navLinks = document.querySelectorAll(".nav-link");
 
-  // 2. Mobile Menu Logic (Only runs if buttons exist)
+  // Mobile Menu Logic
   if (menuOpenButton) {
     menuOpenButton.addEventListener("click", () => {
-      document.body.classList.toggle("show-mobile-menu");
+      document.body.classList.add("show-mobile-menu");
+      header?.classList.remove("-translate-y-full", "opacity-0", "pointer-events-none");
+      header?.classList.add("translate-y-0", "opacity-100");
     });
   }
 
   if (menuCloseButton) {
     menuCloseButton.addEventListener("click", () => {
+      document.body.classList.remove("show-mobile-menu");
+    });
+  }
+
+  if (menuOverlay) {
+    menuOverlay.addEventListener("click", () => {
       document.body.classList.remove("show-mobile-menu");
     });
   }
@@ -26,26 +33,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 3. Scroll Logic
-  window.addEventListener("scroll", function () {
-    if (!header) return;
+  // Hide navbar while scrolling, show again at top.
+  if (header) {
+    header.classList.add("transition-all", "duration-500", "translate-y-0", "opacity-100");
+    window.addEventListener("scroll", () => {
+      if (document.body.classList.contains("show-mobile-menu")) return;
 
-    if (window.scrollY > 50) {
-      // Hides the navbar by moving it up and setting opacity to 0
-      header.classList.add(
-        "opacity-0",
-        "-translate-y-full",
-        "pointer-events-none",
-      );
-      header.classList.remove("opacity-100", "translate-y-0");
-    } else {
-      // Shows the navbar when back at the top
-      header.classList.remove(
-        "opacity-0",
-        "-translate-y-full",
-        "pointer-events-none",
-      );
-      header.classList.add("opacity-100", "translate-y-0");
-    }
-  });
+      if (window.scrollY > 50) {
+        header.classList.add("-translate-y-full", "opacity-0", "pointer-events-none");
+        header.classList.remove("translate-y-0", "opacity-100");
+      } else {
+        header.classList.remove("-translate-y-full", "opacity-0", "pointer-events-none");
+        header.classList.add("translate-y-0", "opacity-100");
+      }
+    });
+  }
 });
