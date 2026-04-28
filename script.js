@@ -8,18 +8,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const showHeader = () => {
     if (!header) return;
-    header.classList.remove("-translate-y-full", "opacity-0", "pointer-events-none");
+    header.classList.remove(
+      "-translate-y-full",
+      "opacity-0",
+      "pointer-events-none",
+    );
     header.classList.add("translate-y-0", "opacity-100", "bg-[#252525]");
   };
 
   const hideHeader = () => {
     if (!header) return;
-    header.classList.add("-translate-y-full", "opacity-0", "pointer-events-none");
+    header.classList.add(
+      "-translate-y-full",
+      "opacity-0",
+      "pointer-events-none",
+    );
     header.classList.remove("translate-y-0", "opacity-100");
   };
 
   const syncHeaderState = () => {
-    if (document.body.classList.contains("show-mobile-menu") || window.scrollY <= scrollThreshold) {
+    if (
+      document.body.classList.contains("show-mobile-menu") ||
+      window.scrollY <= scrollThreshold
+    ) {
       showHeader();
     } else {
       hideHeader();
@@ -58,7 +69,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Hide navbar while scrolling, show again at top.
   if (header) {
-    header.classList.add("transition-all", "duration-500", "translate-y-0", "opacity-100");
+    header.classList.add(
+      "transition-all",
+      "duration-500",
+      "translate-y-0",
+      "opacity-100",
+    );
     window.addEventListener("scroll", syncHeaderState);
     syncHeaderState();
   }
