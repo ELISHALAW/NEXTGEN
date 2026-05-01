@@ -79,3 +79,43 @@ document.addEventListener("DOMContentLoaded", () => {
     syncHeaderState();
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const popup = document.getElementById("imagePopup");
+  const popupImg = document.getElementById("popupImg");
+  const popupCaption = document.getElementById("popupCaption");
+  const popupPrice = document.getElementById("popupPrice");
+  const popupMaterial = document.getElementById("popupMaterial");
+
+  const productLinks = document.querySelectorAll(".product-link");
+
+  productLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // Get the image inside the clicked link
+      const img = this.querySelector("img");
+
+      // 1. Update the Image and Caption
+      popupImg.src = img.src;
+      popupCaption.textContent = img.alt;
+
+      // 2. Update the Cost and Material using .dataset
+      // .dataset.cost matches data-cost in HTML
+      popupPrice.textContent = img.dataset.cost;
+      popupMaterial.textContent = img.dataset.material;
+
+      // 3. Show the popup
+      popup.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  // Close logic (click anywhere outside the image container)
+  popup.addEventListener("click", (e) => {
+    if (e.target.id === "imagePopup" || e.target.tagName === "SPAN") {
+      popup.classList.add("hidden");
+      document.body.style.overflow = "auto";
+    }
+  });
+});
