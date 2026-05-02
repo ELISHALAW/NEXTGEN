@@ -22,12 +22,16 @@
             transition: transform 0.3s ease-in-out;
         }
 
+        .menu-overlay {
+            backdrop-filter: blur(4px);
+        }
+
         .show-mobile-menu .nav-menu {
             transform: translateX(0);
         }
 
         .show-mobile-menu .menu-overlay {
-            opacity: 1;
+            opacity:1;
             pointer-events: auto;
         }
     </style>
@@ -36,62 +40,65 @@
 <body class="bg-gray-50">
     <!-- Header / Navbar -->
     <div class="bg-[#252525]">
-            <header id="main-header" class="bg-[#252525] shadow-lg sticky top-0 z-50 py-6">
+    <!-- 1. HEADER (Only contains the visible bar) -->
+        <header id="main-header" class="bg-[#252525] shadow-lg sticky top-0 z-40 py-6">
             <nav class="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
                 <a href="#" class="flex items-center gap-3">
-                    <img id="nav-logo" src="images/white.png"
-                        class="h-20 w-auto justify-center object-contain transition-all duration-500" alt="logo">
+                    <img id="nav-logo" src="images/white.png" class="h-20 w-auto object-contain transition-all duration-500" alt="logo">
                 </a>
 
-            <ul class="hidden md:flex gap-10">
-                <li class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium cursor-pointer">
-                    <i class="fa-regular fa-house text-xl"></i>
-                    <span>Home</span>
-                </li>
-                
-                <li class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium cursor-pointer">
-                    <i class="fa-solid fa-rectangle-ad text-xl"></i>
-                    <span>Promotion</span>
-                </li>
-                
-                <li class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium cursor-pointer">
-                    <i class="fa-brands fa-cotton-bureau text-xl"></i>
-                    <span>Fashion</span>
-                </li>
-                
-                <li class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium cursor-pointer">
-                    <i class="fa-regular fa-address-book text-xl"></i>
-                    <span>Contact Us</span>
-                </li>
-                
-                <li class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium cursor-pointer">
-                    <i class="fa-solid fa-bag-shopping text-xl"></i>
-                    <span>Bag</span>
-                </li>
-            </ul>
+                <!-- Desktop Menu -->
+                <ul class="hidden md:flex gap-10 text-white">
+                     <li class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium cursor-pointer">
+                        <i class="fa-regular fa-house text-xl"></i>
+                        <span>Home</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium cursor-pointer">
+                        <i class="fa-solid fa-rectangle-ad text-xl"></i>
+                        <span>Promotion</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium cursor-pointer">
+                        <i class="fa-brands fa-cotton-bureau text-xl"></i>
+                        <span>Fashion</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium cursor-pointer">
+                        <i class="fa-regular fa-address-book text-xl"></i>
+                        <span>Contact Us</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium cursor-pointer">
+                        <i class="fa-solid fa-bag-shopping text-xl"></i>
+                        <span>Bag</span>
+                    </li>
+                </ul>
+
+                <!-- Mobile Toggle -->
                 <button id="menu-open-button" class="md:hidden text-2xl text-white" aria-label="Open menu">
                     <i class="fas fa-bars"></i>
                 </button>
-
-                <div id="menu-overlay"
-                    class="menu-overlay fixed inset-0 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden z-40">
-                </div>
-
-                <ul
-                    class="nav-menu fixed top-0 right-0 h-full w-72 bg-[#252525] shadow-xl transform translate-x-full transition-transform duration-300 p-6 space-y-6 md:hidden z-50">
-                    <li class="flex justify-end">
-                        <button id="menu-close-button" class="text-2xl text-white" aria-label="Close menu">
-                            <i class="fas fa-xmark"></i>
-                        </button>
-                    </li>
-                    <li><a href="#home" class="nav-link text-white hover:text-amber-500 transition-colors font-medium">Home</a></li>
-                    <li><a href="#about" class="nav-link text-white hover:text-amber-500 transition-colors font-medium">About</a></li>
-                    <li><a href="#products" class="nav-link text-white hover:text-amber-500 transition-colors font-medium">Menu</a></li>
-                    <li><a href="#gallery" class="nav-link text-white hover:text-amber-500 transition-colors font-medium">Gallery</a></li>
-                    <li><a href="#contact" class="nav-link text-white hover:text-amber-500 transition-colors font-medium">Contact</a></li>
-                </ul>
             </nav>
         </header>
+
+        <!-- 2. MOBILE ELEMENTS (Placed outside header for proper full-screen layering) -->
+        <div id="menu-overlay"
+            class="menu-overlay fixed inset-0 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden z-[60]">
+        </div>
+
+        <ul class="nav-menu fixed top-0 right-0 h-full w-72 bg-[#252525] shadow-xl transform translate-x-full transition-transform duration-300 p-6 space-y-6 md:hidden z-[70]">
+            <li class="flex justify-end">
+                <button id="menu-close-button" class="text-2xl text-white" aria-label="Close menu">
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </li>
+            <li><a href="#home" class="nav-link text-white hover:text-amber-500 transition-colors font-medium">Home</a></li>
+            <li><a href="#about" class="nav-link text-white hover:text-amber-500 transition-colors font-medium">About</a></li>
+            <li><a href="#products" class="nav-link text-white hover:text-amber-500 transition-colors font-medium">Menu</a></li>
+            <li><a href="#gallery" class="nav-link text-white hover:text-amber-500 transition-colors font-medium">Gallery</a></li>
+            <li><a href="#contact" class="nav-link text-white hover:text-amber-500 transition-colors font-medium">Contact</a></li>
+        </ul>
     </div>
 
     <main>
