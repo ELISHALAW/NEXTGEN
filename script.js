@@ -119,3 +119,60 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+const scrollUpBtn = document.querySelector(".scroll-up-btn");
+
+function toggleScrollUpButton() {
+  if (window.scrollY > 400) {
+    scrollUpBtn.classList.add("show");
+  } else {
+    scrollUpBtn.classList.remove("show");
+  }
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
+// Event Listeners
+window.addEventListener("scroll", toggleScrollUpButton);
+scrollUpBtn.addEventListener("click", scrollToTop);
+
+// Optional: Auto-hide after some time when at top (nice UX)
+setTimeout(() => {
+  if (window.scrollY === 0) {
+    scrollUpBtn.classList.remove("show");
+  }
+}, 1000);
+
+let cartItems = 0;
+
+function addToBag() {
+  cartItems++;
+  const badge = document.getElementById("bag-count");
+
+  // Update text content
+  badge.textContent = cartItems;
+
+  // Show badge if it was hidden
+  if (cartItems > 0) {
+    badge.classList.remove("hidden");
+  }
+
+  // Optional: Add a little "pop" animation when adding
+  badge.classList.add("scale-125");
+  setTimeout(() => {
+    badge.classList.remove("scale-125");
+  }, 200);
+}
+
+// Example: Attach this to your "Shop Now" button for testing
+document
+  .querySelector('a[href="./addToCart.html"]')
+  .addEventListener("click", function (e) {
+    e.preventDefault(); // Stop page jump for testing
+    addToBag();
+  });

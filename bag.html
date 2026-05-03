@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Bag | Premium Fashion Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.88em%22 font-size=%2282%22>🐯</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-[#1A1A1A] shadow-lg sticky top-0 z-50 py-5">
+        <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="./index.html" class="flex items-center gap-3">
+                <img src="images/white.png" class="h-10 w-auto object-contain" alt="logo">
+            </a>
+            <a href="./index.html" class="text-white hover:text-amber-500 transition-colors font-semibold text-sm tracking-widest flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> CONTINUE SHOPPING
+            </a>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <h1 class="text-4xl font-extrabold mb-10 flex items-center gap-4">
+            <i class="fa-solid fa-bag-shopping text-amber-500"></i>
+            Your Shopping Bag
+            <span class="text-2xl font-medium text-gray-400">(3 Items)</span>
+        </h1>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            
+            <!-- Items Section -->
+            <div class="lg:col-span-2 space-y-8">
+
+                <!-- Item 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm flex gap-6">
+                    <div class="w-32 h-32 bg-gray-100 rounded-xl overflow-hidden flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=600" 
+                             alt="Premium Cotton Tee" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex justify-between">
+                            <div>
+                                <h3 class="font-semibold text-xl">Premium Cotton Tee</h3>
+                                <p class="text-gray-500 mt-1">Size: M • Color: Natural</p>
+                            </div>
+                            <p class="font-bold text-2xl text-amber-600">$45</p>
+                        </div>
+                        <div class="mt-6 flex items-center justify-between">
+                            <div class="flex items-center border rounded-xl">
+                                <button class="px-4 py-2 text-xl font-medium">-</button>
+                                <span class="px-6 font-semibold">1</span>
+                                <button class="px-4 py-2 text-xl font-medium">+</button>
+                            </div>
+                            <button class="text-red-500 hover:text-red-600 transition-colors">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- You can duplicate the item block for more items -->
+
+            </div>
+
+            <!-- Order Summary -->
+            <div class="lg:col-span-1">
+                <div class="bg-white p-8 rounded-2xl shadow-sm sticky top-24">
+                    <h2 class="text-2xl font-semibold mb-6">Order Summary</h2>
+                    
+                    <div class="space-y-4 text-lg">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Subtotal (3 items)</span>
+                            <span class="font-medium">$135.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Shipping</span>
+                            <span class="text-green-600 font-medium">FREE</span>
+                        </div>
+                        <div class="h-px bg-gray-200 my-4"></div>
+                        <div class="flex justify-between text-xl font-bold">
+                            <span>Total</span>
+                            <span>$135.00</span>
+                        </div>
+                    </div>
+
+                    <button class="w-full mt-8 bg-black text-white py-4 rounded-2xl font-semibold text-lg hover:bg-gray-800 transition-all">
+                        PROCEED TO CHECKOUT
+                    </button>
+
+                    <p class="text-center text-sm text-gray-500 mt-6">
+                        Taxes calculated at checkout
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
