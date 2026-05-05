@@ -1,23 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "nextgen",
-  "version": "1.0.0",
-  "description": "",
-  "main": "script.js",
-  "scripts": {
-    "build:css": "tailwindcss -i ./style.css -o ./dist/output.css --watch",
-    "build": "tailwindcss -i ./style.css -o ./dist/output.css --minify"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "devDependencies": {
-    "autoprefixer": "^10.4.27",
-    "postcss": "^8.5.9",
-    "tailwindcss": "^4.2.2"
-  }
-=======
     "$schema": "https://www.schemastore.org/package.json",
     "private": true,
     "type": "module",
@@ -35,5 +16,4 @@
     "dependencies": {
         "@tailwindcss/cli": "^4.2.4"
     }
->>>>>>> 56da7ae (Initial commit)
 }

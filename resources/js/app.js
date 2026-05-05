@@ -1,4 +1,3 @@
-//
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector("#main-header");
     const menuOpenButton = document.querySelector("#menu-open-button");
