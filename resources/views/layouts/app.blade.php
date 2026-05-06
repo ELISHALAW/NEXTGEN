@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.88em%22 font-size=%2282%22>🐯</text></svg>">
+    <link rel="icon" type="image/png" href="{{ asset('images/white.png') }}">
     @vite(['resources/js/app.js', 'resources/css/app.css'])
     <title>@yield('title', 'Gimas Studio')</title>
 
