@@ -2,118 +2,139 @@
 
 @section('title', 'Gimas Studio')
 
-
 @section('content')
+    <style>
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
 
-    <section id="promotion" class="relative overflow-hidden py-16 lg:py-24">
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+    </style>
+
+    <section id="promotion" class="relative overflow-hidden py-16 lg:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
 
-            <!-- Main Banner Card -->
-            <div class="relative bg-zinc-950 rounded-[3rem] overflow-hidden shadow-2xl">
+            <!-- Main Banner -->
+            <div class="relative bg-zinc-950 rounded-[3rem] overflow-hidden shadow-2xl border border-white/10">
 
-                <!-- Background Decorative Blobs -->
-                <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-blue-600 rounded-full blur-[140px] opacity-20">
-                </div>
-                <div
-                    class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-purple-600 rounded-full blur-[140px] opacity-20">
-                </div>
+                <!-- Background Glow -->
+                <div class="absolute -top-10 -left-10 w-72 h-72 bg-blue-500/20 blur-[120px] rounded-full"></div>
+                <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl -mt-20 -mr-20"></div>
+                <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -mb-20 -ml-20"></div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[640px] lg:min-h-[700px]">
 
-                    <!-- LEFT SIDE: Text Content (FULLY CENTERED) -->
-                    <div class="p-10 lg:p-20 relative z-10 flex flex-col items-center text-center">
-                        <!-- Centered Badge -->
-                        <span
-                            class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-xs font-bold tracking-widest text-blue-400 uppercase bg-blue-400/10 rounded-full border border-blue-400/20">
-                            <span class="relative flex h-2 w-2">
+                    <!-- LEFT: Content -->
+                    <div class="p-10 lg:p-16 xl:p-20 flex flex-col justify-center relative z-10">
+
+                        <!-- Badge -->
+                        <div
+                            class="inline-flex items-center px-6 py-2.5 mb-10 text-sm font-bold tracking-widest text-cyan-400 bg-cyan-950/70 border border-cyan-400/30 rounded-full">
+                            <span class="relative flex h-3 w-3 mr-3">
                                 <span
-                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-400"></span>
                             </span>
-                            Limited Time Offer
-                        </span>
+                            LIMITED TIME OFFER
+                        </div>
 
-                        <h2
-                            class="text-7xl lg:text-8xl font-black text-white leading-tight mb-8 flex flex-col items-center">
-                            <span class="w-full">NEVER</span>
-                            <span
-                                class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 lg:text-8xl">
-                                GIVE UP
-                            </span>
-                        </h2>
+                        <!-- Headline -->
+                        <div class="flex flex-col lg:flex-row lg:items-end gap-6 lg:gap-4 xl:gap-6 mb-10 relative">
+                            <!-- Glow Behind Text -->
+                            <div class="absolute -top-10 -left-10 w-72 h-72 bg-blue-500/20 blur-[120px] rounded-full"></div>
 
-                        <p class="text-gray-400 text-lg lg:text-xl mb-10 max-w-md leading-relaxed mx-auto">
-                            Upgrade your style with our premium performance gear. Designed for comfort, built for the grind.
-                        </p>
+                            <!-- NEVER GIVE UP -->
+                            <div>
+                                <h2
+                                    class="text-6xl md:text-7xl lg:text-8xl font-black 
+                                           text-white leading-[0.85] tracking-[-0.05em]
+                                           drop-shadow-[0_5px_20px_rgba(255,255,255,0.15)]">
+                                    NEVER
+                                </h2>
 
-                        <!-- CTA Area -->
-                        <div class="flex flex-col sm:flex-row gap-6 items-center justify-center">
-                            <a href="{{ route('addToCart.index') }}"
-                                class="w-full sm:w-auto text-center px-10 py-4 bg-white text-black font-bold rounded-xl hover:bg-blue-50 transition-all duration-300 hover:scale-105 shadow-xl">
-                                Shop Now
-                            </a>
-                            <div class="flex flex-col items-center sm:items-start">
-                                <span class="text-3xl font-bold text-white tracking-tighter">40% OFF</span>
-                                <span class="text-gray-500 line-through text-sm">RRP $120</span>
+                                <h2 class="text-7xl font-black tracking-[-0.05em] -mt-4"
+                                    style="
+        background: linear-gradient(to right, #3b82f6, #818cf8, #a855f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    ">
+                                    GIVE UP
+                                </h2>
+                            </div>
+
+                            <!-- 20% OFF -->
+                            <div class="lg:mb-2 lg:-ml-4 xl:-ml-1">
+                                <span
+                                    class="block text-7xl xl:text-[5.5rem] font-black text-white tracking-[-3px] leading-none">
+                                    20%
+                                </span>
+                                <span
+                                    class="block text-6xl lg:text-7xl font-black text-white tracking-tighter leading-none -mt-4">
+                                    OFF
+                                </span>
                             </div>
                         </div>
 
-                        <!-- Trust Signal -->
-                        <p class="mt-8 text-sm text-gray-500 flex items-center justify-center gap-2">
-                            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                            Offer ends in 12 hours. Free shipping included.
+                        <!-- Description -->
+                        <p class="text-zinc-400 text-lg lg:text-xl max-w-md leading-relaxed mb-12">
+                            Upgrade your style with our premium performance gear.
+                            Designed for comfort, built for the grind.
                         </p>
+
+                        <!-- CTA Button -->
+                        <a href="{{ route('Shop.index') }}"
+                            class="inline-block px-10 py-4 bg-white text-black font-bold text-lg rounded-2xl 
+                                  hover:bg-white/90 transition-all active:scale-95 shadow-lg shadow-white/10">
+                            Shop Now →
+                        </a>
+
+                        <!-- Footer -->
+                        <div class="mt-auto pt-12 flex items-center gap-3 text-sm text-zinc-400">
+                            <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                            Offer ends in <span class="text-emerald-400 font-semibold">12 hours</span>.
+                            Free shipping included.
+                        </div>
                     </div>
 
-                    <!-- RIGHT SIDE: Image -->
-                    <div
-                        class="relative h-96 lg:h-full min-h-[500px] bg-zinc-800 flex items-center justify-center group overflow-hidden">
-                        <img src="images/minglong3.jpeg" alt="Promotion Image"
-                            class="absolute inset-0 w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-1000 group-hover:scale-110">
-                        <!-- Dark Gradient Overlay -->
+                    <!-- RIGHT: Image -->
+                    <div class="relative group overflow-hidden min-h-[400px] lg:min-h-full">
+                        <img src="{{ asset('images/minglong3.jpeg') }}" alt="Model wearing premium streetwear"
+                            class="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110">
+
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent lg:bg-gradient-to-l lg:from-zinc-950">
+                            class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent lg:bg-gradient-to-l lg:from-black/90 lg:via-black/30">
+                        </div>
+
+                        <!-- Shirt Text -->
+                        <div
+                            class="absolute bottom-10 right-10 text-white/80 text-right text-sm font-mono tracking-widest leading-tight hidden lg:block">
+                            ONE<br>AT A<br>TIME
                         </div>
                     </div>
 
                 </div>
             </div>
 
-            <!-- Bottom Mini-Promos -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div
-                    class="p-8 bg-white border border-gray-100 rounded-3xl flex items-center gap-5 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 text-2xl">
-                        <i class="fa-solid fa-truck-fast"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-zinc-900">Fast Delivery</h4>
-                        <p class="text-sm text-gray-500 font-medium">2-3 business days</p>
-                    </div>
-                </div>
-
-                <div
-                    class="p-8 bg-white border border-gray-100 rounded-3xl flex items-center gap-5 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <!-- Trust Bar -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                @foreach ([['icon' => 'truck-fast', 'title' => 'Fast Delivery', 'desc' => '2-3 business days'], ['icon' => 'shield-check', 'title' => 'Secure Payment', 'desc' => 'SSL Encrypted'], ['icon' => 'rotate-left', 'title' => 'Free Returns', 'desc' => '30-day money back']] as $item)
                     <div
-                        class="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-600 text-2xl">
-                        <i class="fa-solid fa-shield-check"></i>
+                        class="bg-zinc-900/70 border border-white/5 hover:border-white/10 rounded-3xl p-8 flex items-center gap-6 transition-all hover:-translate-y-1">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-2xl flex items-center justify-center text-3xl text-cyan-400">
+                            <i class="fa-solid fa-{{ $item['icon'] }}"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">{{ $item['title'] }}</h4>
+                            <p class="text-zinc-500 text-sm">{{ $item['desc'] }}</p>
+                        </div>
                     </div>
-                    <div>
-                        <h4 class="font-bold text-zinc-900">Secure Payment</h4>
-                        <p class="text-sm text-gray-500 font-medium">SSL Encrypted</p>
-                    </div>
-                </div>
-
-                <div
-                    class="p-8 bg-white border border-gray-100 rounded-3xl flex items-center gap-5 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 text-2xl">
-                        <i class="fa-solid fa-rotate-left"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-zinc-900">Free Returns</h4>
-                        <p class="text-sm text-gray-500 font-medium">30-day money back</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
         </div>
