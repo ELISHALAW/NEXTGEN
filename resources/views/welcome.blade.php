@@ -221,7 +221,7 @@
                     <a href="#" class="product-link block relative overflow-hidden">
                         <img src="images/postcard1.jpeg" alt="Hot Beverage" data-material="Ceramic & Coffee Beans"
                             data-cost="18.70"
-                            class="product-item w-full aspect-[4/3] object-cover transition-transform duration-700 hover:scale-105">
+                            class="product-item w-full aspect-[4/3] object-cover transition-transform duration-[1500ms] cubic-bezier(0.4, 0, 0.2, 1) group-hover:scale-110 group-hover:brightness-90">
                         <!-- Hover Overlay (Visual hint for clicking) -->
                         <div
                             class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -236,7 +236,7 @@
                     <a href="#" class="product-link block relative overflow-hidden">
                         <img src="images/postcard3.jpeg" alt="Cold Beverage" data-cost="18.70"
                             data-material="Ceramic & Coffee Beans"
-                            class="product-item w-full aspect-[4/3] object-cover   transition-transform duration-700 hover:scale-105">
+                            class="product-item w-full aspect-[4/3] object-cover transition-transform duration-[1500ms] cubic-bezier(0.4, 0, 0.2, 1) group-hover:scale-110 group-hover:brightness-90">
                         <div
                             class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <span class="text-white bg-black/50 px-4 py-2 rounded-full text-sm">View Product</span>
@@ -250,7 +250,7 @@
                     <a href="#" class="product-link block relative overflow-hidden">
                         <img src="images/postcard5.png" alt="Refreshment" data-cost="20.00"
                             data-material="Ceramic & Coffee Beans"
-                            class="product-item w-full aspect-[4/3] object-cover transition-transform duration-700 hover:scale-105">
+                            class="product-item w-full aspect-[4/3] object-cover transition-transform duration-[1500ms] cubic-bezier(0.4, 0, 0.2, 1) group-hover:scale-110 group-hover:brightness-90">
                         <div
                             class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <span class="text-white bg-black/50 px-4 py-2 rounded-full text-sm">View Product</span>
@@ -262,7 +262,7 @@
                     <a href="#" class="product-link block relative overflow-hidden">
                         <img src="images/postcard4.png" alt="Refreshment" data-cost="90.00"
                             data-material="Ceramic & Coffee Beans"
-                            class="product-item w-full aspect-[4/3] object-cover   transition-transform duration-700 hover:scale-105">
+                            class="product-item w-full aspect-[4/3] object-cover transition-transform duration-[1500ms] cubic-bezier(0.4, 0, 0.2, 1) group-hover:scale-110 group-hover:brightness-90">
                         <div
                             class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <span class="text-white bg-black/50 px-4 py-2 rounded-full text-sm">View Product</span>
@@ -274,7 +274,7 @@
                     <a href="#" class="product-link block relative overflow-hidden">
                         <img src="images/postcard55.png" alt="Refreshment" data-cost="100.00"
                             data-material="Ceramic & Coffee Beans"
-                            class="product-item w-full aspect-[4/3] object-cover   transition-transform duration-700 hover:scale-105">
+                            class="product-itemw-full aspect-[4/3] object-cover transition-transform duration-[1500ms] cubic-bezier(0.4, 0, 0.2, 1) group-hover:scale-110 group-hover:brightness-90">
                         <div
                             class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <span class="text-white bg-black/50 px-4 py-2 rounded-full text-sm">View Product</span>
@@ -286,7 +286,7 @@
                     <a href="#" class="product-link block relative overflow-hidden">
                         <img src="images/postcard6.png" alt="Refreshment" data-cost="200.00"
                             data-material="Ceramic & Coffee Beans"
-                            class="product-item w-full aspect-[4/3] object-cover   transition-transform duration-700 hover:scale-105">
+                            class="product-item w-full aspect-[4/3] object-cover transition-transform duration-[1500ms] cubic-bezier(0.4, 0, 0.2, 1) group-hover:scale-110 group-hover:brightness-90">
                         <div
                             class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                             <span class="text-white bg-black/50 px-4 py-2 rounded-full text-sm">View Product</span>
@@ -351,57 +351,123 @@
 
     <!-- Fashion Section -->
     <section class="py-32 bg-[#443a35]" id="fashion">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-5xl font-bold text-center text-[#f8f4ee] mb-16">Fashion</h2>
-            <ul class="grid md:grid-cols-3 gap-8">
-                <li
-                    class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
-                    <a href="javascript:void(0)" class="gallery-link block">
-                        <img src="images/minglong3.jpeg" alt="Gallery 1" class="w-full aspect-[3/4] object-cover">
-                    </a>
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Header Section -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-[#f8f4ee]/60 uppercase tracking-[0.3em] text-sm mb-4 block">Editorial</span>
+                    <h2 class="text-6xl md:text-7xl font-serif text-[#f8f4ee]">Fashion</h2>
+                </div>
+                <p class="text-[#f8f4ee]/80 max-w-md text-lg font-light leading-relaxed">
+                    A curated collection of visual storytelling, capturing the intersection of movement, texture, and light.
+                </p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Item 1 (Example of a featured/larger card) -->
+                <li class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-2xl">
+                    <div class="overflow-hidden aspect-[3/4]">
+                        <img src="images/minglong3.jpeg" alt="Editorial Look 1"
+                            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:blur-[2px]">
+                    </div>
+                    <!-- Interactive Overlay -->
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                        <p
+                            class="text-white/60 text-xs uppercase tracking-widest mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            2024 Collection</p>
+                        <h3
+                            class="text-white text-2xl font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                            Urban Nomad</h3>
+                    </div>
                 </li>
 
                 <!-- Item 2 -->
-                <li
-                    class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
-                    <a href="javascript:void(0)" class="gallery-link block">
-                        <img src="images/minglong1.jpeg" alt="Gallery 2" class="w-full aspect-[3/4] object-cover">
-                    </a>
+                <li class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-2xl">
+                    <div class="overflow-hidden aspect-[3/4]">
+                        <img src="images/minglong1.jpeg" alt="Editorial Look 2"
+                            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:blur-[2px]">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                        <p
+                            class="text-white/60 text-xs uppercase tracking-widest mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            Editorial</p>
+                        <h3
+                            class="text-white text-2xl font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                            Silken Echoes</h3>
+                    </div>
                 </li>
 
                 <!-- Item 3 -->
-                <li
-                    class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
-                    <a href="javascript:void(0)" class="gallery-link block">
-                        <img src="images/minglong2.jpeg" alt="Gallery 3" class="w-full aspect-[3/4] object-cover">
-                    </a>
+                <li class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-2xl">
+                    <div class="overflow-hidden aspect-[3/4]">
+                        <img src="images/minglong2.jpeg" alt="Editorial Look 3"
+                            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:blur-[2px]">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                        <p
+                            class="text-white/60 text-xs uppercase tracking-widest mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            Minimalism</p>
+                        <h3
+                            class="text-white text-2xl font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                            Monochrome Theory</h3>
+                    </div>
                 </li>
 
                 <!-- Item 4 -->
-                <li
-                    class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
-                    <a href="javascript:void(0)" class="gallery-link block">
-                        <img src="images/minglong6.jpeg" alt="Gallery 4" class="w-full aspect-[3/4] object-cover">
-                    </a>
+                <li class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-2xl">
+                    <div class="overflow-hidden aspect-[3/4]">
+                        <img src="images/minglong6.jpeg" alt="Editorial Look 4"
+                            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:blur-[2px]">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                        <p
+                            class="text-white/60 text-xs uppercase tracking-widest mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            Outdoor</p>
+                        <h3
+                            class="text-white text-2xl font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                            Wilder Shores</h3>
+                    </div>
                 </li>
 
                 <!-- Item 5 -->
-                <li
-                    class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
-                    <a href="javascript:void(0)" class="gallery-link block">
-                        <img src="images/minglong5.jpeg" alt="Gallery 5" class="w-full aspect-[3/4] object-cover">
-                    </a>
+                <li class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-2xl">
+                    <div class="overflow-hidden aspect-[3/4]">
+                        <img src="images/minglong5.jpeg" alt="Editorial Look 5"
+                            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:blur-[2px]">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                        <p
+                            class="text-white/60 text-xs uppercase tracking-widest mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            Studio</p>
+                        <h3
+                            class="text-white text-2xl font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                            Shadow Play</h3>
+                    </div>
                 </li>
 
                 <!-- Item 6 -->
-                <li
-                    class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl smooth-transition transform hover:scale-105">
-                    <a href="javascript:void(0)" class="gallery-link block">
-                        <img src="images/minglong7.jpeg" alt="Gallery 6" class="w-full aspect-[3/4] object-cover">
-                    </a>
+                <li class="group relative rounded-2xl overflow-hidden cursor-pointer shadow-2xl">
+                    <div class="overflow-hidden aspect-[3/4]">
+                        <img src="images/minglong7.jpeg" alt="Editorial Look 6"
+                            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:blur-[2px]">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                        <p
+                            class="text-white/60 text-xs uppercase tracking-widest mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            Archive</p>
+                        <h3
+                            class="text-white text-2xl font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                            Timeless Edge</h3>
+                    </div>
                 </li>
             </ul>
-
         </div>
     </section>
 

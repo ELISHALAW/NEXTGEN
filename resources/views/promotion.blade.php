@@ -48,7 +48,7 @@
 
                         <!-- CTA Area -->
                         <div class="flex flex-col sm:flex-row gap-6 items-center justify-center">
-                            <a href="./addToCart.html"
+                            <a href="{{ route('addToCart.index') }}"
                                 class="w-full sm:w-auto text-center px-10 py-4 bg-white text-black font-bold rounded-xl hover:bg-blue-50 transition-all duration-300 hover:scale-105 shadow-xl">
                                 Shop Now
                             </a>

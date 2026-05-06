@@ -1,75 +1,77 @@
-<!-- layouts/partials/header.blade.php -->
+<div class="bg-[#111111]">
+    <header id="main-header" class="bg-[#111111] sticky top-0 z-50 py-6">
+        <nav class="max-w-7xl mx-auto px-8 flex justify-between items-center">
 
-<div class="bg-[#252525]">
-    <header id="main-header" class="bg-[#252525] shadow-xl sticky top-0 z-50 py-6 border-b border-gray-800">
-        <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-
-            <!-- Logo -->
+            <!-- Logo (Left) -->
             <a href="{{ url('/') }}" class="flex items-center">
-                <img id="nav-logo" src="{{ asset('images/white.png') }}" class="h-16 w-auto object-contain"
-                    alt="Gimas Studio">
+                <img src="{{ asset('images/white.png') }}" class="h-10 w-auto" alt="Gimas Studio">
             </a>
 
-            <!-- Desktop Navigation -->
-            <ul class="hidden md:flex items-center gap-8 text-white">
-                <li><a href="#home"
-                        class="hover:text-amber-400 transition-colors flex items-center gap-2 font-medium">
-                        <i class="fa-solid fa-house"></i> Home
-                    </a></li>
-                <li><a href="#about"
-                        class="hover:text-amber-400 transition-colors flex items-center gap-2 font-medium">
-                        <i class="fa-solid fa-info-circle"></i> About
-                    </a></li>
-                <li><a href="#promotion"
-                        class="hover:text-amber-400 transition-colors flex items-center gap-2 font-medium">
-                        <i class="fa-solid fa-bullhorn"></i> Promotion
-                    </a></li>
-                <li><a href="#fashion"
-                        class="hover:text-amber-400 transition-colors flex items-center gap-2 font-medium">
-                        <i class="fa-solid fa-shirt"></i> Fashion
-                    </a></li>
-                <li><a href="#contact"
-                        class="hover:text-amber-400 transition-colors flex items-center gap-2 font-medium">
-                        <i class="fa-solid fa-envelope"></i> Contact
-                    </a></li>
+            <!-- Right Side Links -->
+            <div class="flex items-center gap-10">
+                <ul class="flex items-center gap-10 text-white font-bold uppercase tracking-widest text-xs">
 
-                <!-- Cart -->
-                <li>
-                    <a href="#"
-                        class="relative flex items-center gap-2 hover:text-amber-400 transition-colors font-medium">
-                        <i class="fa-solid fa-bag-shopping text-xl"></i>
-                        <span>Bag</span>
-                        <span id="bag-count"
-                            class="absolute -top-1 -right-1 bg-amber-500 text-[10px] font-bold px-1.5 py-px rounded-full hidden">0</span>
+                    {{-- Logic: Only show "Back to Shop" and "Bag" on Shop-related pages --}}
+                    @if (Request::routeIs('shop') || Request::routeIs('addToCart') || Request::is('cart*'))
+
+                        {{-- Back to Shop --}}
+                        <li>
+                            <a href="{{ url('/shop') }}"
+                                class="hover:opacity-70 transition-opacity flex items-center gap-2">
+                                <i class="fa-solid fa-arrow-left"></i>
+                                Back to Shop
+                            </a>
+                        </li>
+
+                        {{-- Bag --}}
+                        <li>
+                            <a href="{{ url('/cart') }}"
+                                class="flex items-center gap-2 hover:opacity-70 transition-opacity relative">
+                                <i class="fa-solid fa-bag-shopping"></i>
+                                Bag
+
+                                {{-- Simple Counter --}}
+                                @php $cartCount = count((array) session('cart')); @endphp
+                                @if ($cartCount > 0)
+                                    <span class="ml-1 text-amber-500">({{ $cartCount }})</span>
+                                @endif
+                            </a>
+                        </li>
+                    @else
+                        {{-- Normal Menu for Home Page --}}
+                        <div class="flex items-center gap-8">
+                            <a href="{{ route('/') }}"
+                                class="text-white hover:text-amber-500 transition-colors font-semibold text-sm tracking-widest flex items-center gap-2">
+                                <i class="fa-solid fa-arrow-left text-xs"></i> BACK TO SHOP
+                            </a>
+
+                            <!-- Bag with Counter -->
+                            <a href="bag.html"
+                                class="relative flex items-center gap-2 text-white hover:text-amber-500 transition-colors font-medium group">
+                                <i class="fa-solid fa-bag-shopping text-xl"></i>
+                                <span class="hidden md:inline">Bag</span>
+                                <span id="bag-count"
+                                    class="absolute -top-2 -right-2 bg-amber-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-[#1A1A1A] hidden">
+                                    0
+                                </span>
+                            </a>
+                        </div>
+                    @endif
+                </ul>
+
+                {{-- Account/Login icon placed after the list --}}
+                @auth
+                    <a href="/profile" class="text-white hover:opacity-70 transition-opacity">
+                        <i class="fa-solid fa-circle-user text-lg"></i>
                     </a>
-                </li>
-            </ul>
+                @else
+                    <a href=""
+                        class="text-white hover:opacity-70 transition-opacity text-xs font-bold uppercase tracking-widest">
+                        Login
+                    </a>
+                @endauth
+            </div>
 
-            <!-- Mobile Menu Button -->
-            <button id="menu-open-button" class="md:hidden text-3xl text-white">
-                <i class="fas fa-bars"></i>
-            </button>
         </nav>
     </header>
-
-    <!-- Mobile Menu -->
-    <div id="menu-overlay"
-        class="menu-overlay fixed inset-0 bg-black/70 opacity-0 pointer-events-none transition-all md:hidden z-[9999]">
-    </div>
-
-    <div
-        class="nav-menu fixed top-0 right-0 h-full w-72 bg-[#252525] shadow-2xl translate-x-full transition-transform duration-300 p-6 md:hidden z-[9999]">
-        <div class="flex justify-end mb-8">
-            <button id="menu-close-button" class="text-3xl text-white">
-                <i class="fas fa-xmark"></i>
-            </button>
-        </div>
-        <ul class="space-y-6 text-white text-lg">
-            <li><a href="#home" class="block nav-link">Home</a></li>
-            <li><a href="#about" class="block nav-link">About Us</a></li>
-            <li><a href="#promotion" class="block nav-link">Promotion</a></li>
-            <li><a href="#fashion" class="block nav-link">Fashion</a></li>
-            <li><a href="#contact" class="block nav-link">Contact Us</a></li>
-        </ul>
-    </div>
 </div>
