@@ -4,6 +4,7 @@ use App\Http\Controllers\AddToCartController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PromotionController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::middleware('guest')->group(function () {
 
 // --- Authenticated Routes ---
 Route::middleware('auth')->group(function () {
+
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
     // --- CART & CHECKOUT SYSTEM ---
@@ -44,9 +46,12 @@ Route::middleware('auth')->group(function () {
 
     // --- Admin Protected Routes ---
     Route::prefix('admin')->name('admin.')->group(function () {
-        Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+        Route::get('/users', [AdminController::class, 'index'])->name('users.index');
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
         Route::get('/users/create', [AdminController::class, 'create'])->name('users.create');
         Route::post('/users/store', [AdminController::class, 'store'])->name('users.store');
         Route::resource('products', ProductController::class);
+        Route::resource('orders', OrderController::class);
+        Route::resource('users', AdminController::class)->except(['index']);
     });
 });

@@ -15,7 +15,7 @@
             <span class="font-medium">Dashboard</span>
         </a>
 
-        <a href="{{ route('admin.dashboard') }}" {{-- Update this route if you have a specific users.index --}}
+        <a href="{{ route('admin.users.index') }}" {{-- Update this route if you have a specific users.index --}}
             class="flex items-center py-3 px-4 rounded-xl transition duration-200 {{ request()->is('admin/users*') ? 'bg-blue-600 text-white' : 'text-slate-400 hover:bg-slate-800 hover:text-white' }}">
             <i class="fas fa-users mr-3 w-5 text-center"></i>
             <span class="font-medium">User Management</span>
@@ -39,8 +39,8 @@
 
         <div class="pt-4">
             <p class="text-xs font-semibold text-slate-500 uppercase px-4 mb-2">Sales</p>
-            <a href="#"
-                class="flex items-center py-3 px-4 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition duration-200">
+            <a href="{{ route('admin.orders.index') }}"
+                class="flex items-center py-3 px-4 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition duration-200  {{ request()->routeIs('admin.orders.index') ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/50' : 'text-slate-400 hover:bg-slate-800 hover:text-white' }}">
                 <i class="fas fa-shopping-bag mr-3 w-5 text-center"></i>
                 <span class="font-medium">Orders</span>
             </a>

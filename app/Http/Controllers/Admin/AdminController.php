@@ -9,15 +9,21 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+    // Display the list of all users
     public function index()
     {
-        // Fetch all users from the database
         $users = User::all();
-
-        // Return the view and pass the users data
-        return view('admin.dashboard', compact('users'));
+        return view('admin.users.index', compact('users'));
     }
 
+    // Display the main admin dashboard (Overview)
+    public function dashboard()
+    {
+        $users = User::all();
+        // You can pass stats here, like total users or recent orders
+        $userCount = User::count();
+        return view('admin.dashboard', compact('userCount', 'users'));
+    }
 
     public function create()
     {
@@ -34,7 +40,7 @@ class AdminController extends Controller
             'phone_number' => 'nullable|string|max:20', // Matches your DB structure
         ]);
 
-        \App\Models\User::create([
+        User::create([
             'name'         => $request->name,
             'email'        => $request->email,
             'role'         => $request->role,

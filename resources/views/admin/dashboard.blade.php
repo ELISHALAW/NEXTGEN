@@ -19,7 +19,7 @@
             </div>
             <div>
                 <p class="text-sm text-gray-500 font-medium">Total Users</p>
-                <h3 class="text-2xl font-bold text-gray-800">{{ $users->count() }}</h3>
+                <h3 class="text-2xl font-bold text-gray-800">{{ $userCount }}</h3>
             </div>
         </div>
 
