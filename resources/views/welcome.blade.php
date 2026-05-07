@@ -296,6 +296,8 @@
 
                 <!-- Repeat the pattern for g4, g5, and g6 -->
             </ul>
+
+
         </div>
     </section>
 

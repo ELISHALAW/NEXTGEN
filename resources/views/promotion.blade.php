@@ -89,8 +89,8 @@
                         <!-- CTA Button -->
                         <a href="{{ route('Shop.index') }}"
                             class="inline-block px-10 py-4 bg-white text-black font-bold text-lg rounded-2xl 
-                                  hover:bg-white/90 transition-all active:scale-95 shadow-lg shadow-white/10">
-                            Shop Now →
+           hover:bg-white/90 transition-all active:scale-95 shadow-lg shadow-white/10">
+                            <i class="fa-solid fa-cart-shopping mr-2"></i> Shop Now →
                         </a>
 
                         <!-- Footer -->
