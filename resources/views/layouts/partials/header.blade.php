@@ -3,9 +3,7 @@
         <nav class="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
             <!-- Logo -->
-            <!-- Logo -->
             <a href="{{ route('home') }}" class="group flex items-center gap-2">
-                <!-- Increased from h-10 to h-16 (64px) or h-20 (80px) -->
                 <img src="{{ asset('images/white.png') }}"
                     class="h-16 w-auto group-hover:scale-105 transition-transform duration-300" alt="Gimas Studio">
             </a>
@@ -52,10 +50,14 @@
                     </a>
                 </li>
 
-                <!-- Profile Dropdown - Improved Design -->
+                <!-- Profile Dropdown with User Name Display -->
                 <li class="border-l border-white/20 pl-4 lg:pl-6 relative group">
                     @auth
-                        <button class="flex items-center gap-2 hover:text-amber-400 transition-colors focus:outline-none">
+                        <button class="flex items-center gap-3 hover:text-amber-400 transition-colors focus:outline-none">
+                            <!-- Displaying the user's name here -->
+                            <span class="hidden lg:block">
+                                {{ Auth::user()->name }}
+                            </span>
                             <i class="fa-solid fa-circle-user text-2xl"></i>
                         </button>
 
@@ -63,16 +65,18 @@
                         <div
                             class="absolute right-0 mt-3 w-56 bg-[#1f1f1f] border border-white/10 rounded-3xl shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden">
 
-                            <!-- User Info -->
+                            <!-- User Info Header (Inside Dropdown) -->
                             <div class="px-5 py-4 border-b border-white/10">
-                                <p class="text-white font-semibold text-base">{{ Auth::user()->name }}</p>
-                                <p class="text-xs text-gray-400 mt-0.5">{{ Auth::user()->email }}</p>
+                                <p class="text-white font-semibold text-base normal-case tracking-normal">
+                                    {{ Auth::user()->name }}</p>
+                                <p class="text-xs text-gray-400 mt-0.5 lowercase tracking-normal">{{ Auth::user()->email }}
+                                </p>
                             </div>
 
                             <!-- Menu Items -->
                             <div class="py-1">
                                 <a href="/profile"
-                                    class="flex items-center gap-3 px-5 py-3 text-sm text-gray-200 hover:bg-white/5 hover:text-white transition-colors">
+                                    class="flex items-center gap-3 px-5 py-3 text-sm text-gray-200 hover:bg-white/5 hover:text-white transition-colors normal-case tracking-normal">
                                     <i class="fa-solid fa-user w-4"></i>
                                     <span>My Profile</span>
                                 </a>
@@ -83,7 +87,7 @@
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
                                     <button type="submit"
-                                        class="flex items-center gap-3 px-5 py-3 text-sm text-red-400 hover:bg-white/5 hover:text-red-500 transition-colors w-full text-left">
+                                        class="flex items-center gap-3 px-5 py-3 text-sm text-red-400 hover:bg-white/5 hover:text-red-500 transition-colors w-full text-left normal-case tracking-normal">
                                         <i class="fa-solid fa-arrow-right-from-bracket w-4"></i>
                                         <span class="font-medium">Logout</span>
                                     </button>

@@ -40,6 +40,15 @@ class LoginController extends Controller
 
             $request->session()->regenerate();
 
+            // --- Role-Based Redirection Logic ---
+            $user = Auth::user();
+
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard')
+                    ->with('success', 'Welcome to the Admin Dashboard!');
+            }
+
+            // Default redirect for regular users
             return redirect()->intended(route('home'))
                 ->with('success', 'Welcome back!');
         }
