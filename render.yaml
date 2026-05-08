@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: nextgen-shop
+    runtime: php
+    plan: free
+    buildCommand: bash build.sh
+    startCommand: vendor/bin/heroku-php-apache2 public/
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: 'false'
+      - key: LOG_LEVEL
+        value: error
+      - key: LOG_CHANNEL
+        value: stack
+      - key: CACHE_STORE
+        value: database
+      - key: SESSION_DRIVER
+        value: cookie
+      - key: QUEUE_CONNECTION
+        value: database
