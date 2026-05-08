@@ -158,11 +158,12 @@
                         </h3>
                         <div class="space-y-4 max-w-md">
                             <p class="text-zinc-400 text-lg leading-relaxed">
-                                Our latest seasonal collection embodies persistence—built for those who push beyond
-                                physical and mental limits.
+                                In a world that's always full of sarcasm and irony,
+                                move at your own pace— one step at a time, no matter the noise.
+                                STAY REAL .
                             </p>
                             <p class="text-zinc-500 leading-relaxed italic border-l-2 border-zinc-800 pl-4">
-                                "A fusion of performance fabric and street-ready design."
+                                "Be not afraid of going slowly, be afraid only of standing still."
                             </p>
                         </div>
                     </div>
