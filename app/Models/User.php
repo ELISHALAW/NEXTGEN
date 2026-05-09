@@ -2,17 +2,20 @@
 
 namespace App\Models;
 
+// 1. Import the Contract
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+// 2. Add "implements MustVerifyEmail"
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
     protected $fillable = [
         'name',
         'email',
-        'phone_number',     // ← Add this
+        'phone_number',
         'password',
     ];
 

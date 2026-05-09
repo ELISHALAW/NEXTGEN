@@ -30,7 +30,7 @@
                 </div>
 
                 <!-- Note: Remember to add @csrf and handle potential session errors -->
-                <form action="/send-verification" method="POST">
+                <form action="" method="POST">
                     @csrf <!-- Required for Laravel forms -->
 
                     <div class="mb-6">
