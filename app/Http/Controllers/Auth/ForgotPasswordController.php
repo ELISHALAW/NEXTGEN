@@ -16,6 +16,14 @@ class ForgotPasswordController extends Controller
         return view('auth.forgot-password');
     }
 
+    public function resetForm($token)
+    {
+        return view('auth.resetPassword', [
+            'token' => $token,
+            'email' => request('email'),
+        ]);
+    }
+
     /**
      * Send password reset link
      */

@@ -2,14 +2,15 @@
 
 use App\Http\Controllers\AddToCartController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PromotionController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 // --- Public Routes ---
 Route::get('/', function () {
     return view('welcome');
@@ -26,7 +27,25 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'store']);
     Route::get('/forgot-password',[ForgotPasswordController::class,'index'])->name('password.request');
+    Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->name('password.update');
+    // The page that shows the form
+    Route::get('/email/verify-request', [VerificationController::class, 'showRequestForm'])
+        ->name('verification.request');
+
+    // The action that sends the email
+    Route::post('/email/verification-notification', [VerificationController::class, 'sendLink'])
+        ->middleware(['throttle:6,1']) // Prevent spam
+        ->name('verification.send');
+
+        // From your web.php
+    Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'resetForm'])->name('password.reset');
 });
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    // Redirect back to the verification page with a success message
+    return redirect()->route('verification.request')->with('status', 'Your email has been verified successfully!');
+})->middleware(['auth', 'signed'])->name('verification.verify');
 
 // --- Authenticated Routes ---
 Route::middleware('auth')->group(function () {

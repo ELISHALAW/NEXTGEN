@@ -16,7 +16,7 @@
                 <div
                     class="absolute inset-0 bg-[radial-gradient(at_center,#ffffff15_1px,transparent_1px)] [background-size:20px_20px]">
                 </div>
-                
+
                 <!-- Main Illustration - Using your existing image -->
                 <div class="relative z-10 w-full h-full flex items-center justify-center p-8">
                     <img src="{{ asset('images/white.png') }}" alt="Email Verification Illustration"
@@ -53,7 +53,7 @@
                         </div>
                     @endif
 
-                    <form id="verify-form" action="" method="POST" class="space-y-6">
+                    <form id="verify-form" action="{{ route('verification.send') }}" method="POST" class="space-y-6">
                         @csrf
 
                         <div>
