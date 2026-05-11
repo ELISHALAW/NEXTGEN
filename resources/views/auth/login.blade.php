@@ -88,7 +88,7 @@
                             <div class="flex items-center justify-between mb-2 ml-1">
                                 <label for="password"
                                     class="block text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Password</label>
-                                <a href="#"
+                                <a href="{{ route('password.request') }}"
                                     class="text-xs font-bold text-amber-500/80 hover:text-amber-400">Forgot?</a>
                             </div>
                             <input id="password" name="password" type="password" required

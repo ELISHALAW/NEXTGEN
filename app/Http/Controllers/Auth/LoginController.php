@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -21,7 +22,7 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'email'    => ['required', 'string', 'email'],
             'password' => ['required', 'string'],
         ]);
