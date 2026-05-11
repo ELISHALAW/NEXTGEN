@@ -45,6 +45,10 @@ Route::middleware('guest')->group(function () {
 
     Route::post('/reset-password', [ForgotPasswordController::class, 'store'])
         ->name('password.update');
+
+    Route::post('/email/verification-notification', [App\Http\Controllers\Auth\EmailVerificationController::class, 'resend'])
+    ->middleware('guest')           // ← Important
+    ->name('verification.resend');
 });
 
 // =========================================================================
@@ -70,9 +74,7 @@ Route::middleware('auth')->group(function () {
         })->middleware('signed')->name('verify');
 
         // Resend verification link (supports your form with email input)
-        Route::post('/verification-notification', [EmailVerificationController::class, 'resend'])
-            ->middleware('throttle:6,1')
-            ->name('resend');
+ 
     });
 
     // =====================================================================
