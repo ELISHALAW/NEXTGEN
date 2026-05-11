@@ -45,10 +45,6 @@ Route::middleware('guest')->group(function () {
 
     Route::post('/reset-password', [ForgotPasswordController::class, 'store'])
         ->name('password.update');
-
-    Route::post('/email/verification-notification', [App\Http\Controllers\Auth\EmailVerificationController::class, 'resend'])
-    ->middleware('guest')           // ← Important
-    ->name('verification.resend');
 });
 
 // =========================================================================
@@ -58,13 +54,16 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+    // Verification notice shown when a signed-in user needs to verify their email
+    Route::get('/email/verify', fn() => view('auth.forgot-password'))
+        ->name('verification.notice');
+
     // =====================================================================
     // EMAIL VERIFICATION
     // =====================================================================
     Route::prefix('email')->name('verification.')->group(function () {
 
-        Route::get('/verify', fn() => view('auth.verify-email'))
-            ->name('notice');
+        
 
         // Verify link from email
         Route::get('/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
@@ -74,7 +73,9 @@ Route::middleware('auth')->group(function () {
         })->middleware('signed')->name('verify');
 
         // Resend verification link (supports your form with email input)
- 
+        Route::post('/verification-notification', [EmailVerificationController::class, 'resend'])
+            ->middleware(['throttle:6,1'])
+            ->name('resend');
     });
 
     // =====================================================================
