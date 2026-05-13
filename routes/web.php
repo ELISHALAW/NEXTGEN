@@ -26,8 +26,20 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [RegisterController::class, 'store']);
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'store']);
-    Route::get('/forgot-password',[ForgotPasswordController::class,'index'])->name('password.request');
-    Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->name('password.update');
+    // Forgot Password
+    Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])
+        ->middleware('guest')
+        ->name('password.request');
+
+    Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLink'])
+        ->middleware('guest')
+        ->name('password.email');
+
+    // Reset Password
+    // Update this line in web.php
+    Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetForm'])->name('password.reset');
+
+    Route::post('/reset-password', [ForgotPasswordController::class, 'store'])->name('password.update');
     // The page that shows the form
     Route::get('/email/verify-request', [VerificationController::class, 'showRequestForm'])
         ->name('verification.request');
@@ -38,7 +50,6 @@ Route::middleware('guest')->group(function () {
         ->name('verification.send');
 
         // From your web.php
-    Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'resetForm'])->name('password.reset');
 });
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {

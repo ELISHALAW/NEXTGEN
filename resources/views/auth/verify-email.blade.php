@@ -31,8 +31,9 @@
                     <form method="POST" action="{{ route('password.update') }}" class="space-y-5">
                         @csrf
                         
-                        <input type="hidden" name="token" value="{{ $token }}">
-                        <input type="hidden" name="email" value="{{ $email ?? old('email') }}">
+                        {{-- Update these two lines in your form --}}
+                    <input type="hidden" name="token" value="{{ $token ?? request()->route('token') }}">
+                    <input type="hidden" name="email" value="{{ $email ?? request()->query('email') }}">
 
                         <div>
                             <label for="password" class="block text-sm font-medium text-gray-700 mb-1">New Password</label>
