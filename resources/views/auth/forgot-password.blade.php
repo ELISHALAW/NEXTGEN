@@ -53,7 +53,7 @@
                         </div>
                     @endif
 
-                    <form id="verify-form" action="{{ route('verification.resend') }}" method="POST" class="space-y-6">
+                    <form id="verify-form" action="{{ route('password.email') }}" method="POST" class="space-y-6">
                         @csrf
 
                         <div>

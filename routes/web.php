@@ -34,11 +34,20 @@ Route::middleware('guest')->group(function () {
 
     // Password Reset
    Route::get('forgot-password', [ForgotPasswordController::class, 'index'])->name('password.request');
-    Route::post('forgot-password', [ForgotPasswordController::class, 'store'])->name('password.email');
+    Route::post('forgot-password', [ForgotPasswordController::class, 'sendResetLink'])
+    ->name('password.email');
 
     // 2. Reset Password (The link from Gmail)
-    Route::get('reset-password/{token}', [ResetPasswordController::class, 'create'])->name('password.reset');
-    Route::post('reset-password', [ResetPasswordController::class, 'store'])->name('password.update');
+
+    // This is the route the email link is looking for
+    Route::get('/reset-password/{token}', function ($token) {
+        return view('auth.reset-password', ['token' => $token]);
+    })->name('password.reset');
+
+    // This is the route that handles the form submission from reset-password.blade.php
+    Route::post('/reset-password', [ForgotPasswordController::class, 'store'])
+        ->name('password.update');
+
 });
 
 // =========================================================================
