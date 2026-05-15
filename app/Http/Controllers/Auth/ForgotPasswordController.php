@@ -37,25 +37,13 @@ class ForgotPasswordController extends Controller
     /**
      * Reset password (Handle form submission from reset-password.blade.php)
      */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'token' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|min:8|confirmed',
-        ]);
+    public function store(Request $request) {
+        $request->validate(['email' => 'required|email']);
 
-        $status = Password::reset(
-            $request->only('email', 'password', 'password_confirmation', 'token'),
-            function ($user, $password) {
-                $user->forceFill([
-                    'password' => bcrypt($password)
-                ])->save();
-            }
-        );
+        $status = Password::broker()->sendResetLink($request->only('email'));
 
-        return $status === Password::PASSWORD_RESET
-            ? redirect()->route('login')->with('status', __($status))
+        return $status === Password::RESET_LINK_SENT
+            ? back()->with('status', __($status))
             : back()->withErrors(['email' => __($status)]);
     }
 }
