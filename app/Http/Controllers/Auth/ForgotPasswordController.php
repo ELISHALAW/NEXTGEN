@@ -11,7 +11,36 @@ use Illuminate\Auth\Events\PasswordReset;
 
 class ForgotPasswordController extends Controller
 {
-    // ... index and sendResetLink methods ...
+    /**
+     * Display the form to request a password reset link.
+     */
+    public function index()
+    {
+        return view('auth.forgot-password');
+    }
+
+    /**
+     * Send a reset link to the given user.
+     * THIS WAS MISSING AND CAUSING YOUR ERROR.
+     */
+    public function sendResetLink(Request $request)
+    {
+        // 1. Validate that the email is required and exists in the system
+        $request->validate([
+            'email' => 'required|email|exists:users,email',
+        ]);
+
+        // 2. Attempt to send the password reset link via Laravel's Password Broker
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        // 3. If successfully sent, redirect back with a status message.
+        // Otherwise, redirect back with an error message.
+        return $status === Password::RESET_LINK_SENT
+            ? back()->with('status', __($status))
+            : back()->withErrors(['email' => [__($status)]]);
+    }
 
     /**
      * Reset the user's password.
@@ -42,7 +71,6 @@ class ForgotPasswordController extends Controller
         );
 
         // 3. Redirect based on the result
-        // If successful, go to login. If not, go back with an error message.
         return $status === Password::PASSWORD_RESET
             ? redirect()->route('login')->with('status', __($status))
             : back()->withErrors(['email' => [__($status)]]);
